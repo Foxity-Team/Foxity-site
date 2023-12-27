@@ -2,14 +2,14 @@
   font-family: 'Julia Mono';
   font-weight: normal;
   font-style: normal;
-  src: url("http://soviet-workshop.freemyip.com/static/fonts/JuliaMono/JuliaMono-Regular.ttf");
+  src: url("/static/fonts/JuliaMono/JuliaMono-Regular.ttf");
 }
 
 @font-face {
-  font-family: 'AnonymousPro';
+  font-family: 'Better VCR';
   font-weight: normal;
   font-style: normal;
-  src: url("http://soviet-workshop.freemyip.com/static/fonts/AnonymousPro/AnonymousPro-Regular.ttf");
+  src: url("/static/fonts/BetterVCR/better-vcr.ttf");
 }
 
 html {
@@ -49,7 +49,7 @@ div#footer {
   text-align: center;
   padding: 10px;
   border-top: 1px solid #777777;
-  font-family: 'AnonymousPro', monospace;
+  font-family: 'Better VCR', monospace;
   font-size: 1.15em;
 }
 
@@ -200,16 +200,26 @@ margin-left: 5px;
 }
 
 .highlight-1 {
-  font-family: 'AnonymousPro';
+  font-family: 'Better VCR';
   color: #FF2400;
 }
 
-.highlight2-1 {
-  font-family: 'AnonymousPro';
+.neso-highlight {
+  font-family: 'Better VCR';
+  color: #FF2400;
+}
+
+.griss-highlight {
+  font-family: 'Better VCR';
   color: #0080ff;
 }
 
-.highlight2-2 {
+.encoded-highlight {
+  font-family: 'Better VCR';
+  color: #855cd6;
+}
+
+/*.highlight2-2 {
   color: #0080ff;
 }
 
@@ -217,14 +227,9 @@ margin-left: 5px;
   color: #FF2400;
 }
 
-.highlight3-1 {
-  font-family: 'AnonymousPro';
-  color: #855cd6;
-}
-
 .highlight3-2 {
   color: #855cd6;
-}
+}*/
 
 #sitemap {
   color: #666666;
