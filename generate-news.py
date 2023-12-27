@@ -15,6 +15,9 @@ with open(news_dir + 'index-template.html') as f:
 
 index_contents = '<ul>'
 
+if not os.path.exists(generated_news_dir):
+    os.mkdir(generated_news_dir)
+
 for filename in os.listdir(generated_news_dir):
     os.remove(generated_news_dir + filename)
 
@@ -38,3 +41,5 @@ index_contents += '</ul>'
 
 with open(generated_news_dir + 'index.html', 'w') as f:
     f.write(index_template.replace('{{ body }}', index_contents))
+
+print(f'Сгенерировано {len(files) + 1} файлов')
