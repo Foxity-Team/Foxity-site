@@ -46,7 +46,7 @@ h1, h2, h3, h4 {
     color: #FF2400;
 }
 
-.neso-color:hover {
+.neso-highlight:hover {
     background-color: #FF2400;
 }
 
@@ -54,7 +54,7 @@ h1, h2, h3, h4 {
     color: #0080ff;
 }
 
-.griss-color:hover {
+.griss-highlight:hover {
     background-color: #0080ff;
 }
 
@@ -62,7 +62,7 @@ h1, h2, h3, h4 {
     color: #855cd6;
 }
 
-.encoded-color:hover {
+.encoded-highlight:hover {
     background-color: #855cd6;
 }
 
