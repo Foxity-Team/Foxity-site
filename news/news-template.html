@@ -8,7 +8,22 @@
           <title>Новости - Soviet WorkShop</title>
     </head>
     <body>
-        <a href="/news">Назад</a>
-        {{ body }}
+        <nav>
+            <a href="/"><img src="/static/foxity logo.svg" alt="Лого Foxity"></a>
+            <a href="/news" title="Все новости, связанные c проектами компании.">новости</a>
+            <a href="/contacts" title="Вы можете связаться с нами.">контакты</a>
+            <a href="/project" title="Не слишком ли много их?">проекты</a>
+            <a href="/donate" title="Помочь проекту">пожертвования</a>
+        </nav>
+
+        <main>
+            <section>
+                {{ body }}
+            </section>
+        </main>
+
+        <footer>
+          Foxity Team (c) <a href="/licensing" class="link-style-2">Лицензии</a>
+        </footer>
     </body>
 </html>
