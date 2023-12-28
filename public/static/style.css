@@ -46,12 +46,24 @@ h1, h2, h3, h4 {
     color: #FF2400;
 }
 
+.neso-color:hover {
+    background-color: #FF2400;
+}
+
 .griss-color {
-  color: #0080ff;
+    color: #0080ff;
+}
+
+.griss-color:hover {
+    background-color: #0080ff;
 }
 
 .encoded-color {
-  color: #855cd6;
+    color: #855cd6;
+}
+
+.encoded-color:hover {
+    background-color: #855cd6;
 }
 
 .main-color {
@@ -78,14 +90,31 @@ nav {
     left: 0;
     width: 100%;
     background-color: var(--color-background);
+    border-bottom: 2px solid var(--color-highlight);
+    display: flex;
+}
+
+nav a {
+    flex-grow: 1;
+    align-self: center;
+}
+
+nav img {
+    max-height: 1.75em;
+    vertical-align: middle;
 }
 
 body{
-    max-width: 600px;
+    max-width: 800px;
     margin: 0 auto;
     font-family: 'Julia Mono', monospace;
     color: #E8E8E8;
     font-size: 1.1rem;
+}
+
+main {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 section {
