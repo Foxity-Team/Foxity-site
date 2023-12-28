@@ -3,83 +3,90 @@
 <head>
   <meta charset="utf8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/static/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/static/foxity logo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/static/style.css">
   <title>Foxity Team</title>
 </head>
 <body>
-	<div class="block">
-	  <div class="request">
-	      <ul id="sitemap">
-	        <li> | <a href="/news" title="Все новости, связанные c проектами компании." class="link-style-1">новости</a> | <a href="/contacts" title="Вы можете связаться с нами." class="link-style-1">контакты</a> | <a href="/project" class="link-style-1" title="Не слишком ли много их?">проекты</a> | <a href="/donate" title="Помочь проекту" class="link-style-1">пожертвования</a> |</li>
-	      </ul>
-	  </div>
-	</div>
+	<nav>
+        <a href="/news" title="Все новости, связанные c проектами компании." class="link-style-1">новости</a>
+        <a href="/contacts" title="Вы можете связаться с нами." class="link-style-1">контакты</a>
+        <a href="/project" class="link-style-1" title="Не слишком ли много их?">проекты</a>
+        <a href="/donate" title="Помочь проекту" class="link-style-1">пожертвования</a>
+	</nav>
 
-	<div class="block">
-	  <div class="request">
-	    <img style="float: center; max-width: 50%;" src="/static/foxity.png" alt="Логотип foxity" />
-	  </div>
-	</div>
+    <img class="logo" src="/static/foxity logo text.png" alt="Логотип foxity" />
 
-	<div class="block">
-	  <div class="request2">О компании:</div>
-	  <p class="small-margin-bottom"><span class="highlight-1">Foxity Team</span> — небольшая, но высококвалифицированная и креативная команда из трёх профессионалов. </br>Каждый из нас является экспертом в своей области.</p> 
-	  <p class="small-margin-bottom">Мы специализируемся в создании проектов, которые приносят пользу пользователям.</p> 
-	  <p class="small-margin-top">Наше упорство поддерживает стремление к достижению целей.</p>
-	  <p class="small-margin-bottom">В настоящее время мы активно работаем над созданием собственного сайта, который будет служить площадкой для того, чтобы больше людей узнали о нас.</p>
-	  <p class="small-margin-bottom">Сайт находится в стадии активной разработки, </br>потому следите за обновлениями!</p>
-	  <p>Все проекты вы можете посмотреть на странице <a href="/project" class="link-style-2">"Проекты"</a>.</p>
-	</div>
+    <main>
+        <section>
+            <h2>О компании:</h2>
+            <p><span class="main-color highlight">Foxity Team</span> — небольшая, но высококвалифицированная и креативная команда из трёх профессионалов. </br>
+                Каждый из нас является экспертом в своей области.</p> 
+            <p>Мы специализируемся в создании проектов, которые приносят пользу пользователям. 
+               Наше упорство поддерживает стремление к достижению целей.</p>
+            <p>В настоящее время мы активно работаем над созданием собственного сайта, который будет служить площадкой для того, чтобы больше людей узнали о нас.</p>
+            <p>Сайт находится в стадии активной разработки, потому следите за обновлениями!</p>
+            <p>Все проекты вы можете посмотреть на странице <a href="/project">"Проекты"</a>.</p>
+        </section>
 
-	<div class="block">
-	  <div class="request2">О Neso Hiroshi:</div>
-	  <span style="float: right;"><img id="pfp" src="/static/avatar.jpg" title="Аватарка была нарисована Дарьей Картышевой"><br></span>
-	  <p class="small-margin-bottom">Здравия желаю!</br>Меня кличут <span class="neso-highlight">Neso Hiroshi</span> или же <span class="neso-highlight">Soviet Fox</span>.</p> 
-	  <p class="small-margin-bottom">Я программист, системный администратор, конлангер, художник, музыкант и фуррь. </p> 
-	  <p>Умею программировать на языках:</p>
-	  <p>1.Python (Tovarish)</p>
-	  <p>2.HTML (Middle)</p>
-	  <p>3.CSS (Middle)</p>
-	  <p>4.C (Junior)</p>
-	  <p>5.JavaScript (Middle)</p>
-	  <p>6.Haskell (Junior)</p>
-	  <p>В свободное время занимаюсь рисованием в Krita на графическом планшете, а музыку пишу в FL Studio. </br>Говорю на русском, английском и родавском.</p>
-	 </div>
+        <section>
+          <h3 class="neso-color">О Neso Hiroshi:</h3>
+          <img style="float: right;" id="pfp" src="/static/avatar.jpg" title="Аватарка была нарисована Дарьей Картышевой" />
+          <p>Здравия желаю!</br>Меня кличут <span class="neso-color highlight">Neso Hiroshi</span> или же <span class="neso-color highlight">Soviet Fox</span>.</p> 
+          <p>Я программист, системный администратор, конлангер, художник, музыкант и фуррь. </p> 
+          <p>Умею программировать на языках:</p>
+          <ol>
+            <li>Python (Tovarish)</li>
+            <li>HTML (Middle)</li>
+            <li>CSS (Middle)</li>
+            <li>C (Junior)</li>
+            <li>JavaScript (Middle)</li>
+            <li>Haskell (Junior)</li>
+          </ol>
+          <p>В свободное время занимаюсь рисованием в Krita на графическом планшете, а музыку пишу в FL Studio. </br>
+             Говорю на русском, английском и родавском.</p>
+        </section>
 
-	<div class="block">
-	  <div class="request2">О Grisshink'e:</div>
-	  <span style="float: right;"><img id="pfp" src="/static/grisshink.png" title="Аватарка была нарисована Grisshink'oм"><br></span>
-	  <p class="small-margin-bottom">Привет, меня зовут <span class="griss-highlight">Grisshink</span>.</p> 
-	  <p class="small-margin-bottom">Я программист и системный администратор Linux. Знаю языки программирования:</p> 
-	  <p>1.C (Senior)</p>
-	  <p>2.Python (Senior)</p>
-	  <p>3.Rust (Senior)</p>
-	  <p>4.Bash (Middle)</p>
-	  <p>5.TypeScript (Middle)</p>
-	  <p>Кроме того, увлекаюсь графикой в Scratch, Gimp и Inkscape, а также создаю музыку в beepbox. </br>Знаю английский и русский язык.</p>
-	</div>
+        <section>
+          <h3 class="griss-color">О Grisshink'e:</h3>
+          <img style="float: right;" id="pfp" src="/static/grisshink.png" title="Аватарка была нарисована Grisshink'oм">
+          <p>Привет, меня зовут <span class="griss-color highlight">Grisshink</span>.</p> 
+          <p>Я программист и системный администратор Linux. Знаю языки программирования:</p> 
+          <ol>
+              <li>C (Senior)</li>
+              <li>Python (Senior)</li>
+              <li>Rust (Senior)</li>
+              <li>Bash (Middle)</li>
+              <li>TypeScript (Middle)</li>
+          </ol>
+          <p>Кроме того, увлекаюсь графикой в Scratch, Gimp и Inkscape, а также создаю музыку в beepbox. </br>
+             Знаю английский и русский язык.</p>
+        </section>
 
-	<div class="block">
-	  <div class="request2">Об encoded3:</div>
-	  <span style="float: right;"><img id="pfp" src="/static/encoded3.png" title="Аватарка была нарисована Иваном"><br></span>
-	  <p class="small-margin-bottom">Приветствую, пользователь клирнета!</br><span class="encoded-highlight">Энкодед</span> на связи.</p> 
-	  <p>Программирую на:</p>
-	  <p>1.Python (Middle)</p>
-	  <p>2.JavaScript (Middle)</p>
-	  <p>3.Lua (Middle)</p>
-	  <p>4.Rust (Junior)</p>
-	  <p>5.C (Junior)</p>
-	  <p>6.HTML (Junior)</p>
-	  <p>7.CSS (мегаJunior)</p>
-	  <p>8.Bash (мегаJunior)</p>
-	  <p>Увлекаюсь Inkscape-ом. </br>Опенсоурсер и любитель децентрализованных сетей. </br>Говорю на русском, Учу немецкий язык.</p>
-	  <p>Фанат Mindustry</p>
-	</div>
+        <section>
+          <h3 class="encoded-color">Об encoded3:</h3>
+          <img style="float: right;" id="pfp" src="/static/encoded3.png" title="Аватарка была нарисована Иваном">
+          <p>Приветствую, пользователь клирнета!</br><span class="encoded-color highlight">Энкодед</span> на связи.</p> 
+          <p>Программирую на:</p>
+          <ol>
+              <li>Python (Middle)</li>
+              <li>JavaScript (Middle)</li>
+              <li>Lua (Middle)</li>
+              <li>Rust (Junior)</li>
+              <li>C (Junior)</li>
+              <li>HTML (Junior)</li>
+              <li>CSS (мегаJunior)</li>
+              <li>Bash (мегаJunior)</li>
+          </ol>
+          <p>Увлекаюсь Inkscape-ом. </br>
+             Опенсоурсер и любитель децентрализованных сетей. </br>
+             Говорю на русском, Учу немецкий язык.</p>
+          <p>Фанат Mindustry</p>
+        </section>
+    </main>
 
-	<div class="block" id="footer">
-	  Foxity Team (c) <a href="/licensing" class="link-style-2">лицензии</a>
-	</div>
+	<footer>
+	  Foxity Team (c) <a href="/licensing" class="link-style-2">Лицензии</a>
+	</footer>
 </body>
 </html>
