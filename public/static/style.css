@@ -66,6 +66,14 @@ h1, h2, h3, h4 {
     background-color: #855cd6;
 }
 
+.aryluneix-color {
+    color: #fff;
+}
+
+.aryluneix-highlight:hover {
+    background-color: #fff;
+}
+
 .main-color {
     color: var(--color-highlight);
 }
