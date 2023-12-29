@@ -1,14 +1,10 @@
-from flask import Flask, jsonify, Response, request, render_template
+from flask import Flask, jsonify, Response, request
 import random
 import json
 import socket
 
-
-
 words = {}
 app = Flask(__name__)
-
-
 
 with open('words.txt', 'r', encoding='utf-8') as file:
     lines = file.readlines()
@@ -23,9 +19,8 @@ def load_jokes_from_file():
         return jokes_data
     except FileNotFoundError:
         return []
+
 jokes = load_jokes_from_file()
-
-
 
 @app.route('/word', methods=['POST'])
 def get_noun():
@@ -57,8 +52,6 @@ def list_of_jokes():
     ordered_jokes = [{"title": joke["title"], "content": joke["content"], "id": joke["id"]} for joke in jokes]
     response = Response(json.dumps(ordered_jokes, indent=4), content_type='application/json')
     return response
-
-
 
 if __name__ == '__main__':
     host = '0.0.0.0'
