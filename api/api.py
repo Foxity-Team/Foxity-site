@@ -53,6 +53,16 @@ def list_of_jokes():
     response = Response(json.dumps(ordered_jokes, indent=4), content_type='application/json')
     return response
 
+@app.route('/man', methods=['GET'])
+def greet_man():
+    response_data = [
+        {"Что бы вывести рандомную шутку": "foxity.freemyip.com/api/joke"},
+        {"Что бы вывести лист шуток": "foxity.freemyip.com/api/jokes"},
+        {"Что бы вывести лист слов": "foxity.freemyip.com/api/words"},
+        {"Что бы перевести слово на родавский язык нужно к апи отправить POST запрос со словом которое нужно перевести": "foxity.freemyip.com/api/word"}
+    ]
+    return jsonify(response_data)
+
 if __name__ == '__main__':
     host = '0.0.0.0'
     port = 8000
