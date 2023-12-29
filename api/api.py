@@ -22,7 +22,7 @@ def load_jokes_from_file():
 
 jokes = load_jokes_from_file()
 
-@app.route('/word', methods=['POST'])
+@app.route('/api/word', methods=['POST'])
 def get_noun():
     if request.json and 'word' in request.json:
         word = request.json['word'].lower()
@@ -32,11 +32,11 @@ def get_noun():
         else:
             return jsonify({'error': 'Word not found'}), 404, {'Content-Type': 'application/json; charset=utf-8'}
 
-@app.route('/words', methods=['GET'])
+@app.route('/api/words', methods=['GET'])
 def list_of_words():
     return jsonify(words), 200, {'Content-Type': 'application/json; charset=utf-8'}
 
-@app.route('/joke', methods=['GET'])
+@app.route('/api/joke', methods=['GET'])
 def get_random_joke():
     random_joke = random.choice(jokes)
     ordered_joke = {
@@ -47,7 +47,7 @@ def get_random_joke():
     response = Response(json.dumps(ordered_joke, indent=4), content_type='application/json')
     return response
 
-@app.route('/jokes', methods=['GET'])
+@app.route('/api/jokes', methods=['GET'])
 def list_of_jokes():
     ordered_jokes = [{"title": joke["title"], "content": joke["content"], "id": joke["id"]} for joke in jokes]
     response = Response(json.dumps(ordered_jokes, indent=4), content_type='application/json')
