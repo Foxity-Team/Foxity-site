@@ -53,7 +53,7 @@ def list_of_jokes():
     response = Response(json.dumps(ordered_jokes, indent=4), content_type='application/json')
     return response
 
-@app.route('/man', methods=['GET'])
+@app.route('/api/man', methods=['GET'])
 def greet_man():
     response_data = [
         {"Что бы вывести рандомную шутку": "foxity.freemyip.com/api/joke"},
