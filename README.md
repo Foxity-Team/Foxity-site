@@ -13,7 +13,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Собберите сайт
+3. Соберите сайт
 
 ```bash
 python generate-news.py
