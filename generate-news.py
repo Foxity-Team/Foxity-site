@@ -66,13 +66,13 @@ templatesPath = 'templates'
 
 allowedExts = ['.md', '.html']
 
-template = readAll('templates/index.html')
+template = readAll(path.join(templatesPath, 'index.html'))
 
 val = collectDict (
       mapFilenames(lambda f   : f if path.splitext(f)[1] == '' else path.splitext(f)[0] + '.html',
       mapFilenames(lambda f   : distPath + f.removeprefix(pagesPath),
-      mapFiles    (lambda f, d: wrapWithTemplate(template, f), 
-      filterFiles (lambda f, d: path.splitext(f)[1] in allowedExts, readDirectoryRec(pagesPath))))))
+      mapFiles    (lambda f, _: wrapWithTemplate(template, f), 
+      filterFiles (lambda f, _: path.splitext(f)[1] in allowedExts, readDirectoryRec(pagesPath))))))
 
 counter = 0
 
