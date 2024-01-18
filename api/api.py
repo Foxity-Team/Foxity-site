@@ -3,72 +3,58 @@ import random
 import json
 import socket
 
-words = {}
 app = Flask(__name__)
 
-with open('words.txt', 'r', encoding='utf-8') as file:
-    lines = file.readlines()
-    for line in lines:
-        word, word2 = map(str.strip, line.split(':'))
-        words[word.lower()] = word2
+def readFileLines(filename: str) -> list[str]:
+    with open(filename, encoding='utf-8') as f: return f.readlines()
 
-def load_jokes_from_file():
-    try:
-        with open('jokes.txt', 'r') as file:
-            jokes_data = json.load(file)
-        return jokes_data
-    except FileNotFoundError:
-        return []
+def readFileJson(filename: str):
+    with open(filename) as f: return json.load(f)
 
-jokes = load_jokes_from_file()
+words_path = 'words.txt'
+jokes_path = 'jokes.txt'
+json_headers = {'Content-Type': 'application/json; charset=utf-8'}
+
+words = dict(map(lambda v: (v[0].lower(), v[1]),
+             map(lambda v: [el.strip() for el in v.split(':')], readFileLines(words_path))))
+
+jokes = sorted(readFileJson(jokes_path), key=lambda v: v['id'])
+
+man_content = {
+    "Что бы вывести рандомную шутку": "foxity.freemyip.com/api/joke",
+    "Что бы вывести лист шуток": "foxity.freemyip.com/api/jokes",
+    "Что бы вывести лист слов": "foxity.freemyip.com/api/words",
+    "Что бы перевести слово на родавский язык нужно к апи отправить POST запрос со словом которое нужно перевести": "foxity.freemyip.com/api/word"
+}
 
 @app.route('/api/word', methods=['POST'])
 def get_noun():
-    if request.json and 'word' in request.json:
-        word = request.json['word'].lower()
-        word2 = words.get(word, None)
-        if word2:
-            return jsonify({'word': word2}), 200, {'Content-Type': 'application/json; charset=utf-8'}
-        else:
-            return jsonify({'error': 'Word not found'}), 404, {'Content-Type': 'application/json; charset=utf-8'}
+    if not request.json or 'word' not in request.json: return
+
+    word = words.get(request.json['word'].lower(), None)
+    return (jsonify({'word': word}), 200, json_headers) if word else \
+           (jsonify({'error': 'Word not found'}), 404, json_headers)
 
 @app.route('/api/words', methods=['GET'])
 def list_of_words():
-    return jsonify(words), 200, {'Content-Type': 'application/json; charset=utf-8'}
+    return jsonify(words), 200, json_headers
 
 @app.route('/api/joke', methods=['GET'])
 def get_random_joke():
-    random_joke = random.choice(jokes)
-    ordered_joke = {
-        "title": random_joke["title"],
-        "content": random_joke["content"],
-        "id": random_joke["id"]
-    }
-    response = Response(json.dumps(ordered_joke, indent=4), content_type='application/json')
-    return response
+    return jsonify(random.choice(jokes)), 200, json_headers
 
 @app.route('/api/jokes', methods=['GET'])
 def list_of_jokes():
-    ordered_jokes = [{"title": joke["title"], "content": joke["content"], "id": joke["id"]} for joke in jokes]
-    response = Response(json.dumps(ordered_jokes, indent=4), content_type='application/json')
-    return response
+    return jsonify(jokes), 200, json_headers
 
 @app.route('/api/man', methods=['GET'])
 def greet_man():
-    response_data = [
-        {"Что бы вывести рандомную шутку": "foxity.freemyip.com/api/joke"},
-        {"Что бы вывести лист шуток": "foxity.freemyip.com/api/jokes"},
-        {"Что бы вывести лист слов": "foxity.freemyip.com/api/words"},
-        {"Что бы перевести слово на родавский язык нужно к апи отправить POST запрос со словом которое нужно перевести": "foxity.freemyip.com/api/word"}
-    ]
-    return jsonify(response_data)
+    return jsonify(man_content)
 
 if __name__ == '__main__':
-    host = '0.0.0.0'
+    host = '127.0.0.1'
     port = 8000
 
     ip_address = socket.gethostbyname(socket.gethostname())
-    
-    print(f"Server running at {ip_address}:{port}")
 
     app.run(host=host, port=port)

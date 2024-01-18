@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-          <meta charset="utf8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <link rel="icon" href="/static/foxity-logo.svg" type="image/svg+xml">
-          <link rel="stylesheet" href="/static/style.css">
-          <title>Новости - Foxity team</title>
+        <meta charset="utf8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="/static/foxity-logo.svg" type="image/svg+xml">
+        <link rel="stylesheet" href="/static/style.css">
+        <title>Foxity Team</title>
     </head>
     <body>
         <nav>
@@ -16,14 +16,15 @@
             <a href="/donate" title="Помочь проекту">пожертвования</a>
         </nav>
 
+        {{ logo }}
+
         <main>
-            <section>
-                {{ body }}
-            </section>
+            {{ body }}
         </main>
 
         <footer>
-          Foxity Team (c) <a href="/licensing" class="link-style-2">Лицензии</a>
+            Foxity Team (c) <a href="/licensing" class="link-style-2">Лицензии</a>
         </footer>
     </body>
+
 </html>

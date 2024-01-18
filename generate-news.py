@@ -3,11 +3,7 @@ import marko
 from os import path
 from typing import Iterable
 from collections.abc import Callable
-from shutil import rmtree
-
-def readDirectory(dirPath: os.PathLike) -> Iterable[str]:
-    if not path.exists(dirPath): os.mkdir(dirPath)
-    return map(lambda v: dirPath + v, os.listdir(dirPath))
+from shutil import rmtree, copytree
 
 def readDirectoryRec(dirPath: os.PathLike) -> Iterable:
     files = map(lambda v: (path.join(dirPath, v), v), os.listdir(dirPath))
@@ -40,14 +36,17 @@ def readAll(filename: str) -> str:
 
 def directoryToHtml(dir: str) -> str:
     listing = ''.join(
-                 map(lambda v: f'<li>{path.splitext(v)[0]}</li>', 
-                 filter(lambda v: v != 'index.html' and not path.isdir(path.join(dir, v)), os.listdir(dir))))
-    return f'<ol>{listing}</ol>'
+                 map(lambda v: f'<li><a href="{path.join(dir.removeprefix(pagesPath), v)}">{path.splitext(v)[0]}</a></li>', 
+                 filter(lambda v: v != 'index.html', os.listdir(dir))))
+    return f'<ul>{listing}</ul>' if len(listing) > 0 else '<p>Тут немного пустовато...</p>'
 
 def wrapWithTemplate(template: str, filename: str) -> str:
-    file = readAll(filename)
-    return template.replace('{{ body }}', file if file != '' and file.splitlines()[0] != '<!-- DirList -->' 
-                                          else file + directoryToHtml(path.dirname(filename)))
+    return template.replace('{{ body }}', readAll(filename)) \
+                   .replace('{{ logo }}',
+                        '</br><img class="logo" src="/static/foxity logo text.png" alt="Логотип foxity" />' 
+                        if filename == path.join(pagesPath, 'index.html') 
+                        else '') \
+                   .replace('{{ DirList }}', directoryToHtml(path.dirname(filename)))
 
 def placeFiles(dir: dict) -> None:
     global counter
@@ -60,22 +59,26 @@ def placeFiles(dir: dict) -> None:
             with open(filename, 'w') as f:
                 f.write(data)
 
-pagesPath = 'pages'
-distPath = 'test-public'
+pagesPath     = 'pages'
+staticPath    = 'static'
+distPath      = 'public'
+templatesPath = 'templates'
+
 allowedExts = ['.md', '.html']
 
-template = readAll('templates/index.html')
+template = readAll(path.join(templatesPath, 'index.html'))
 
 val = collectDict (
       mapFilenames(lambda f   : f if path.splitext(f)[1] == '' else path.splitext(f)[0] + '.html',
       mapFilenames(lambda f   : distPath + f.removeprefix(pagesPath),
-      mapFiles    (lambda f, d: wrapWithTemplate(template, f), 
-      filterFiles (lambda f, d: path.splitext(f)[1] in allowedExts, readDirectoryRec(pagesPath))))))
+      mapFiles    (lambda f, _: wrapWithTemplate(template, f), 
+      filterFiles (lambda f, _: path.splitext(f)[1] in allowedExts, readDirectoryRec(pagesPath))))))
 
 counter = 0
 
 if path.exists(distPath): rmtree(distPath)
 os.mkdir(distPath)
 placeFiles(val)
+copytree(staticPath, path.join(distPath, path.basename(staticPath)))
 
 print(f'Сгенерировано {counter} файлов')
