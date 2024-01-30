@@ -102,14 +102,39 @@ nav {
     display: flex;
 }
 
-nav a {
-    flex-grow: 1;
+nav .nav-links {
     align-self: center;
+    flex-grow: 1;
+    display: flex;
+}
+
+.nav-links a {
+    align-self: center;
+    flex-grow: 1;
+}
+
+nav a {
+    align-self: center;
+    flex-grow: 0.2;
 }
 
 nav img {
     max-height: 1.75em;
     vertical-align: middle;
+}
+
+@media (max-width: 500px) {
+    nav {
+        gap: 1em;
+    }
+
+    .nav-links {
+        flex-direction: column;
+    }
+    
+    .nav-links a {
+        align-self: start;
+    }
 }
 
 body{
