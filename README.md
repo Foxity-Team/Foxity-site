@@ -1,4 +1,4 @@
-## Генерация сайта
+## Развёртка сайта
 
 1. Создайте venv через команду:
 
@@ -13,10 +13,10 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-3. Соберите сайт
+3. Запустите сайт
 
 ```bash
-python generate-news.py
+python flask-server.py
 ```
 
-Выходной сайт будет сгенерирован в папке `public/` вместе с папкой `static` скопированной в `public/static`
+При необходимости можно отредактировать параметры в файле `config.json`
