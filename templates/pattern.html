@@ -13,15 +13,13 @@
             <div class="nav-links">
                 <a href="/news" title="Все новости, связанные c проектами компании.">новости</a>
                 <a href="/contacts" title="Вы можете связаться с нами.">контакты</a>
-                <a href="/project" title="Не слишком ли много их?">проекты</a>
+                <a href="/projects" title="Не слишком ли много их?">проекты</a>
                 <a href="/donate" title="Помочь проекту">пожертвования</a>
             </div>
         </nav>
 
-        {{ logo }}
-
         <main>
-            {{ body }}
+            {{ body|safe }}
         </main>
 
         <footer>
