@@ -42,12 +42,12 @@ h1, h2, h3, h4 {
     margin-top: 0;
 }
 
-.felix-color {
-    color: #8e8c87;
+.lina-color {
+    color: #ff4f00;
 }
 
-.felix-highlight:hover {
-    background-color: #8e8c87;
+.lina-highlight:hover {
+    background-color: #ff4f00;
 }
 
 .griss-color {
@@ -59,11 +59,11 @@ h1, h2, h3, h4 {
 }
 
 .encoded-color {
-    color: #855cd6;
+    color: #0fb100;
 }
 
 .encoded-highlight:hover {
-    background-color: #855cd6;
+    background-color: #0fb100;
 }
 
 .aryluneix-color {
@@ -72,6 +72,14 @@ h1, h2, h3, h4 {
 
 .aryluneix-highlight:hover {
     background-color: #fff;
+}
+
+.arducat-color {
+    color: #ffddaa;
+}
+
+.arducat-highlight:hover {
+    background-color: #ffddaa;
 }
 
 .main-color {
