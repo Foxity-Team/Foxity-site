@@ -2,14 +2,7 @@
   font-family: 'Julia Mono';
   font-weight: normal;
   font-style: normal;
-  src: url("/static/fonts/JuliaMono/JuliaMono-Regular.ttf");
-}
-
-@font-face {
-  font-family: 'Better VCR';
-  font-weight: normal;
-  font-style: normal;
-  src: url("/static/fonts/BetterVCR/better-vcr-5.2.ttf");
+  src: url("/static/fonts/JuliaMono/JuliaMono-Regular.woff2");
 }
 
 @font-face {
