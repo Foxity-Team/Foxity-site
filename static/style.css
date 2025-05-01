@@ -9,14 +9,7 @@
   font-family: 'Blazma';
   font-weight: normal;
   font-style: normal;
-  src: url("/static/fonts/Blazma/Blazma-Regular.woff");
-}
-
-@font-face {
-  font-family: 'Blazma';
-  font-weight: normal;
-  font-style: italic;
-  src: url("/static/fonts/Blazma/Blazma-Italic.woff");
+  src: url("/static/fonts/Blazma/Blazma-Regular.woff2");
 }
 
 :root {
