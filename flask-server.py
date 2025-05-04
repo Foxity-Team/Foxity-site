@@ -1,12 +1,14 @@
+#!/usr/bin/env python
+
 from flask import Flask, render_template, jsonify, Response, request
-import json
 from newsgen import renderNews
-import json
+import json, os
 
-
+HOST = os.environ.get('HOST', '0.0.0.0')
+PORT = int(os.environ.get('PORT', 5555))
+DEBUG = bool(os.environ.get('DEBUG'))
 
 app = Flask(__name__)
-config = json.loads(open("config.json", "r").read())
 man_content = {
     "Пока что заглушка": "Потом что нить добавим",
 }
@@ -24,6 +26,10 @@ def renderPage(dir: str, args):
 def index():
     return renderPage("pages/index.html", None)
 
+@app.route("/healthz")
+def healthz():
+    return {'status': 'ok'}
+
 @app.route("/<page>")
 def pg(page):
     match page:
@@ -36,10 +42,5 @@ def pg(page):
 def greet_man():
     return jsonify(man_content)
 
-
-args = (app, config["host"], config["port"])
-if not config["debug"]:
-    from waitress import serve
-    serve(*args)
-else:
-    Flask.run(*args)
+if __name__ == '__main__':
+    app.run(host=HOST, port=PORT, debug=DEBUG)
