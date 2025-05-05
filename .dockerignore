@@ -7,11 +7,3 @@ __pycache__
 *.pyc
 *.pyo
 *.pyd
-.env.template
-LICENSE
-README.md
-.gitignore
-.dockerignore
-Dockerfile
-docker-compose.yml
-docker-compose.prod.yml
