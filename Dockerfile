@@ -27,7 +27,7 @@ RUN adduser \
 # Switching to it
 USER appuser
 
-COPY . /app
+COPY ./app /app
 
 EXPOSE 8000
 

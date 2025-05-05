@@ -1,12 +1,12 @@
 ## Развёртка сайта
 
+### Подготовка
+1. Склонируйте репо: `git clone http://foxityteam-repo.i2p/Foxity/Foxity-site.git`
+2. Скопируйте .env.template в .env и подставьте свои значения
 ### Через Docker
-1. Скопируйте .env.template в .env и подставьте свои значения
-2. Запустить компоуз
-
 `docker compose up` Для разработки и тестов, НЕ ИСПОЛЬЗОВАТЬ НА ПРОДЕ!
 
-`docker compose -f docker-compose.prod.yml up` Для прода: имеется health check, приложение запускается через gunicorn. Можно изменять темплейты и новости.
+`docker compose -f docker-compose.prod.yml up` Для прода: имеется health check, приложение запускается через gunicorn. Можно изменять темплейты и новости (проброшены волюмы).
 ### Вручную
 1. Создайте venv через команду:
 
@@ -24,10 +24,9 @@ pip install -r requirements.txt
 3. Запустите сайт
 
 ```bash
-python flask-server.py
+python flask-server.py # (для тестов и дева)
+gunicorn --config gunicorn.conf.py -w 4 -b хост:порт flask-server:app # для прода
 ```
-
-При необходимости можно отредактировать параметры в файле `.env` [создайте на основе `.env.template`]
 
 ## Публикация новостей
 Для публикации новостей нужно создать новый markdown файл в папке news: `<индекс># <название>.md`  

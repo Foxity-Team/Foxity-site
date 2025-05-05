@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 
-from flask import Flask, render_template, jsonify, Response, request
-from newsgen import renderNews
+from flask import Flask, render_template, jsonify, abort
+from newsgen import render_news
 import json, os
+from typing import Any
 
 HOST = os.environ.get('HOST', '0.0.0.0')
 PORT = int(os.environ.get('PORT', 5555))
@@ -13,18 +14,19 @@ man_content = {
     "Пока что заглушка": "Потом что нить добавим",
 }
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("pattern.html", body=render_template("404.html"))
 
-def renderPage(dir: str, args):
-    try:    body = render_template(dir, args=args)
-    except: body = None
-
-    if body: return render_template("pattern.html", body=body)
-    else:    return render_template("pattern.html", body=render_template("404.html")), 404
-
+def render_page(dir: str, args: any = None):
+    if dir in app.jinja_env.list_templates():
+        return render_template("pattern.html", body=render_template(dir, args=args))
+    else:
+        abort(404)
 
 @app.route("/")
 def index():
-    return renderPage("pages/index.html", None)
+    return render_page("pages/index.html")
 
 @app.route("/healthz")
 def healthz():
@@ -33,10 +35,10 @@ def healthz():
 @app.route("/<page>")
 def pg(page):
     match page:
-        case "news": args = renderNews()
+        case "news": args = render_news()
         case _:      args = None
         
-    return renderPage(f"pages/{page}.html", args)
+    return render_page(f"pages/{page}.html", args)
 
 @app.route('/api/', methods=['GET'])
 def greet_man():
