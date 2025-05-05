@@ -8,8 +8,8 @@ services:
       - .env
     command: gunicorn --config gunicorn.conf.py -w 4 -b ${HOST}:${PORT} flask-server:app
     volumes:
-      - ./templates:/app/templates
-      - ./news:/app/news
+      - ./app/templates:/app/templates
+      - ./app/news:/app/news
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:${PORT}/healthz"]
       interval: 10s
