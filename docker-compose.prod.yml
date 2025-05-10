@@ -6,7 +6,7 @@ services:
       - 5555:5555
     env_file:
       - .env
-    command: gunicorn --config gunicorn.conf.py -w 4 -b ${HOST}:${PORT} flask-server:app
+    command: ["gunicorn", "--config", "gunicorn.conf.py", "-w", "4", "-b", "${HOST}:${PORT}", "flask-server:app"]
     volumes:
       - ./app/templates:/app/templates
       - ./app/news:/app/news
