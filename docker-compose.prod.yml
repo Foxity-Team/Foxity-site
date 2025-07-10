@@ -3,7 +3,7 @@ services:
     build: .
     restart: unless-stopped
     ports:
-      - 5555:5555
+      - ${PORT}:${PORT}
     env_file:
       - .env
     command: ["gunicorn", "--config", "gunicorn.conf.py", "-w", "4", "-b", "${HOST}:${PORT}", "flask-server:app"]
