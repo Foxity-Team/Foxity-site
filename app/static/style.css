@@ -37,11 +37,11 @@ h1, h2, h3, h4 {
 }
 
 .griss-color {
-    color: #0080ff;
+    color: #19ff65;
 }
 
 .griss-highlight:hover {
-    background-color: #0080ff;
+    background-color: #19ff65;
 }
 
 .encoded-color {
@@ -50,14 +50,6 @@ h1, h2, h3, h4 {
 
 .encoded-highlight:hover {
     background-color: #0fb100;
-}
-
-.aryluneix-color {
-    color: #fff;
-}
-
-.aryluneix-highlight:hover {
-    background-color: #fff;
 }
 
 .arducat-color {
